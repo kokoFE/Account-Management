@@ -1,0 +1,27 @@
+{
+  "name": "account",
+  "version": "1.0.0",
+  "description": "A management for account developed by node.js",
+  "main": "main.js",
+  "dependencies": {
+    "dayjs": "^1.7.4",
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.2.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokoFE/Account-Management.git"
+  },
+  "author": "kokoFE",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kokoFE/Account-Management/issues"
+  },
+  "homepage": "https://github.com/kokoFE/Account-Management#readme"
+}

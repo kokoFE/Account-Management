@@ -30,7 +30,11 @@ app.use(koaBody())
 router.get('/', async (ctx, next) => {
   ctx.response.body = `<h1>index page</h1>`
 })
-
+router.get('/api/getRecord', async (ctx, next) => {
+  // const currentRecord = new Record();
+  const result = await Record.find({});
+  ctx.body = result
+})
 router.post('/api/addRecord', async (ctx, next) => {
   const requestBody = ctx.request.body
   const currentRecord = new Record();
@@ -40,21 +44,20 @@ router.post('/api/addRecord', async (ctx, next) => {
   currentRecord.cost = requestBody.cost;
   currentRecord.tag = requestBody.tag;
   currentRecord.detail = requestBody.detail;
-  const result = await currentRecord.save(async (err, currentRecord) => {
-    if (err) {
-      console.log(err)
-    } else {
-      ctx.status = 200;
-      ctx.response.body = 'save success!'
-      console.log(currentRecord)
-      console.log(ctx)
-    }
+  const result = await new Promise((resolve, reject) => {
+    currentRecord.save(async (err, currentRecord) => {
+      if (err) {
+        return reject(err);
+      }
+      ctx.body = 'success'
+      resolve(currentRecord);
+    })
   })
 })
 
-router.get('/404', async (ctx, next) => {
-  ctx.response.body = '<h1>404 Not Found</h1>'
-})
+// router.get('/404', async (ctx, next) => {
+//   ctx.response.body = '<h1>404 Not Found</h1>'
+// })
 
 app.use(router.routes());
 

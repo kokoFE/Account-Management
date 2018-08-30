@@ -1,5 +1,5 @@
-const Koa = require('Koa');
-const Router = require('Koa-router');
+const Koa = require('koa');
+const Router = require('koa-router');
 const koaBody = require('koa-body');
 const mongoose = require('mongoose');
 const cors = require('koa2-cors');

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/bulma.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="./scripts/fontawesome.js"></script>
+
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h2>一罐</h2>
+      <div class="nav">
+        <div class="nav-item">
+          <a href="./index.html">公司介绍</a>
+        </div>
+        <div class="nav-item">
+          <a href="./product.html">公司产品</a>
+        </div>
+        <div class="nav-item">
+          <a href="./article.html">用户评价</a>
+        </div>
+        <div class="nav-item">
+          <a href="./contact.html">联系我们</a>
+        </div>
+        <div class="nav-item active">
+          <a href="#">登录\注册</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="swagger"></div>
+    <div class="context">
+      <div class="container app">
+        <div class="card" v-if="visible" style="width: 300px;position: relative;top: -430px;margin: 0 auto;">
+          <div class="tabs is-centered">
+            <ul>
+              <li class="is-active sLogin"><a>登录</a></li>
+              <li class="sRegister" @click="switchRegister"><a>注册</a></li>
+            </ul>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <div class="field">
+                <label class="label">用户名</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="text" placeholder="请输入用户名（邮箱）" v-model="lUsername">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">密码</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="password" placeholder="请输入密码" v-model="lPassword">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-key fa-fw"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a href="#" class="card-footer-item" id="login" @click="onLogin">登录</a>
+            <a href="#" class="card-footer-item" @click="onReturn">返回</a>
+          </footer>
+        </div>
+        <div class="card" v-else style="width: 300px;position: relative;top: -430px;margin: 0 auto;">
+          <div class="tabs is-centered">
+            <ul>
+              <li class="sLogin" @click="switchLogin"><a>登录</a></li>
+              <li class="is-active sRegister"><a>注册</a></li>
+            </ul>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <div class="field">
+                <label class="label">用户名</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="text" placeholder="请输入用户名（邮箱）" v-model="rUsername">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">密码</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="password" placeholder="请输入密码" v-model="rPass1">
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-key fa-fw"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">确认密码</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-success" type="password" placeholder="请再次输入密码" v-model="rPass2">
+                  <span class="icon is-small is-left">
+                      <i class="fa fa-key fa-fw"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer class="card-footer">
+            <a class="card-footer-item" id="register" @click="onRegister">注册</a>
+            <a class="card-footer-item" @click="onReturn">返回</a>
+          </footer>
+        </div>
+        <div class="modal" :class="{show: isModalVisible}">
+          <div class="modal-background"></div>
+          <div class="modal-content" style="top: 50%;width: 340px;">
+            <article class="message" :class="{'is-success': modalType === 'success', 'is-danger': modalType === 'error'}">
+              <div class="message-header">
+                <p v-if="modalType === 'success'">success</p>
+                <p v-if="modalType === 'error'">error</p>
+              </div>
+              <div class="message-body">
+                <p>{{modalMsg}}</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="item">
+        <div class="logo"></div>
+        <p></p>
+      </div>
+    </div>
+    <div class="container" style="display: flex;justify-content: space-around;">
+      <div class="sq-item">
+        <img src="./images/image1.png" alt="">
+        <h4>经营范围</h4>
+        <p>公司主营网络技术开发、计算机软件技术开发、技术咨询、技术服务。</p>
+      </div>
+      <div class="sq-item">
+        <img src="./images/image2.png" alt="">
+        <h4>人员概况</h4>
+        <p>公司目前员工30人，其中研发人员9名。 </p>
+      </div>
+      <div class="sq-item">
+        <img src="./images/image3.png" alt="">
+        <h4>部门设置</h4>
+        <p>公司共设置了6个部门，分别为：技术部，行政，人力资源部，客户服务部，市场部。 </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <p>版权所有：上海犬岛信息科技有限公司</p>
+      <p>©一罐 沪ICP备18031101号</p>
+    </div>
+  </div>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+var vm = new Vue({
+  el: '.app',
+  data () {
+    return {
+      visible: true,
+      lUsername: '',
+      lPassword: '',
+      rUsername: '',
+      rPass1: '',
+      rPass2: '',
+      isModalVisible: false,
+      modalType: 'success',
+      msgType: '',
+      modalMsg: '',
+      mailReg: /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/
+    }
+  },
+  methods: {
+    switchLogin: function () {
+      this.visible = true
+      this.lUsername = ''
+      this.lPassword = ''
+    },
+    switchRegister: function () {
+      this.visible = false
+      this.rUsername = ''
+      this.rPass1 = ''
+      this.rPass2 = ''
+    },
+    onReturn: function () {
+      window.location.href = '/index.html'
+    },
+    onLogin: function (event) {
+      event.preventDefault()
+      console.log('login')
+      var self = this
+      if (!self.mailReg.test(self.lUsername)) {
+        self.modalMsg = '请使用邮箱用户名'
+        self.modalType = 'error'
+        self.isModalVisible = true
+        window.setTimeout(function () {
+          self.isModalVisible = false
+        }, 1000)
+        return false
+      }
+      axios.post('http://localhost:3000/api/signin', {
+        username: self.lUsername,
+        password: self.lPassword
+      }).then(function (response) {
+        console.log(response)
+        if (response.data.success) {
+          self.modalMsg = '登录成功'
+          self.modalType = 'success'
+        } else {
+          self.modalMsg = response.data.message
+          self.modalType = 'error'
+        }
+        self.isModalVisible = true
+        window.setTimeout(function () {
+          self.isModalVisible = false
+        }, 1000)
+      }).catch(function (error) {
+        console.log(error)
+      })
+      this.isModalVisible = true
+      window.setTimeout(function () {
+        self.isModalVisible = false
+      }, 2000)
+    },
+    onRegister: function () {
+      console.log('register')
+      var self = this
+      if (this.rPass1 !== this.rPass2) {
+        this.isModalVisible = true
+        this.modalType = 'error'
+        this.modalMsg = '两次密码输入不一致'
+        window.setTimeout(function () {
+          self.isModalVisible = false
+        }, 1000)
+        return false
+      }
+      if (!self.mailReg.test(self.rUsername)) {
+        self.modalMsg = '请使用邮箱用户名'
+        self.modalType = 'error'
+        self.isModalVisible = true
+        window.setTimeout(function () {
+          self.isModalVisible = false
+        }, 1000)
+        return false
+      }
+      axios.post('http://localhost:3000/api/signup', {
+        username: self.rUsername,
+        password: self.rPass1
+      }).then(function (response) {
+        console.log(response)
+        if (response.data.success) {
+          self.modalMsg = '注册成功'
+          self.modalType = 'success'
+        } else {
+          self.modalMsg = response.data.message
+          self.modalType = 'error'
+        }
+        self.isModalVisible = true
+        window.setTimeout(function () {
+          self.isModalVisible = false
+        }, 1000)
+      }).catch(function (error) {
+        console.log(error)
+      })
+    }
+  }
+})
+</script>
+</html>

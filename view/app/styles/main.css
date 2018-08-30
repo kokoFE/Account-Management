@@ -1,0 +1,133 @@
+.container {
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+}
+.header {
+  height: 60px;
+  color: #6c7171;
+  background: #1d2726;
+}
+.header a {
+  color: #6c7171;
+}
+.header h2 {
+  font-size: 26px;
+  color: #f1faff;
+  line-height: 60px;
+}
+.header .nav {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header .nav-item {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+.header .nav-item.active a {
+  color: #f1faff;
+}
+.header .nav-item:after {
+  content: '';
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 0;
+  height: 4px;
+  bottom: -50%;
+  background: #f1faff;
+  transition: all 300ms ease-in-out;
+  transform-origin: 50% 50%;
+}
+.header .nav-item.active:after {
+  width: 100%;
+}
+.header .nav-item:hover a {
+  color: #f1faff;
+}
+.header .nav-item:hover:after {
+  width: 100%;
+}
+.header .nav-item + .nav-item {
+  margin-left: 20px;
+}
+.body {
+  user-select: none;
+}
+.body .swagger {
+  width: 100%;
+  min-height: 600px;
+  background-image: url('../images//main.png');
+  background-size: cover;
+}
+.body .context {
+  background: #1173b6;
+  height: 300px;
+  position: relative;
+}
+.body .main h3 {
+  color: #f1faff;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+.body .main p {
+  color: #f1faff;
+  margin-bottom: 5px;
+}
+.body .main {
+  width: 400px;
+  position: relative;
+  top: 40px;
+}
+.body .context-img {
+  width: 300px;
+  border: 10px solid #fff;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 4px solid #fff;
+}
+.body .map-img {
+  width: 980px;
+  border: 10px solid #fff;
+  position: absolute;
+  top: -420px;
+  /* bottom: 0; */
+  right: 0;
+  background: #fff;
+  border-bottom: 4px solid #fff;
+}
+.sq-item {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.footer {
+  padding: 10px;
+}
+.footer p {
+  text-align: center;
+}
+.body .context.contact {
+  /* height: 700px; */
+}
+.body .context.contact .main {
+  top: 150px;
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+.solgon {
+  width: 50%;
+  float: left;
+  text-align: left;
+}

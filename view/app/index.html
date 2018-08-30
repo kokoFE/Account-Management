@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/bulma.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="./scripts/fontawesome.js"></script>
+
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h2>一罐</h2>
+      <div class="nav">
+        <div class="nav-item active">
+          <a href="#">公司介绍</a>
+        </div>
+        <div class="nav-item">
+          <a href="./product.html">公司产品</a>
+        </div>
+        <div class="nav-item">
+          <a href="./article.html">用户评价</a>
+        </div>
+        <div class="nav-item">
+          <a href="./contact.html">联系我们</a>
+        </div>
+        <div class="nav-item">
+          <a href="./login.html">登录\注册</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="body">
+    <div class="swagger"></div>
+    <div class="context" style="height: 250px;">
+      <div class="container">
+        <div class="main">
+          <h3>一款「年轻人的社交工具」</h3>
+          <p>无处诉说，又不愿藏匿的心事，也想被温柔地对待。那就把情绪装进罐头里吧。
+              “在没人认识我的地方，你才能真正认识我。”</p>
+          <p>做这个从社交恐惧中萌生出来的社交APP，是因为许多人和我一样。
+              和我一样孤独。</p>
+        </div>
+        <div class="context-img">
+          <img src="./images/img3.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="context" style="height: 500px;">
+      <div class="container" style="text-align: center;">
+        <h3 style="font-size: 26px;margin-bottom: 20px;color: #fff;">一罐还是一款能够帮助大家查看并理解数据的商业智能软件。</h3>        
+        <article class="message is-warning solgon">
+          <div class="message-body">
+            <h2><i class="fa fa-rocket"></i>  快速分析</h2>
+            <p>在数分钟内完成数据连接和可视化。一罐比现有的其他解决方案快 10 到 100 倍。</p>
+          </div>
+        </article>
+        <article class="message is-warning solgon">
+          <div class="message-body">
+            <h2><i class="fa fa-gift"></i>  简单易用</h2>
+            <p>任何人都可以使用直观明了的拖放产品分析数据。无需编程即可深入分析。</p>
+          </div>
+        </article>
+        <article class="message is-warning solgon">
+          <div class="message-body">
+            <h2><i class="fa fa-database"></i>  大数据，任何数据</h2>
+            <p>无论是电子表格、数据库还是 Hadoop 和云服务，任何数据都可以轻松探索。 </p>
+          </div>
+        </article>
+        <article class="message is-warning solgon">
+          <div class="message-body">
+            <h2><i class="fa fa-cubes"></i>  智能仪表板</h2>
+            <p>集合多个数据视图，进行更丰富的深入分析。数据可视化最佳做法等待您去体验。 </p>
+          </div>
+        </article>
+        <article class="message is-warning solgon">
+          <div class="message-body">
+            <h2><i class="fa fa-desktop"></i>  自动更新</h2>
+            <p>通过实时连接获取最新数据，或者根据制定的日程表获取自动更新。  </p>
+          </div>
+        </article>
+        <article class="message is-warning solgon">
+          <div class="message-body">
+            <h2><i class="fa fa-random"></i>  瞬时共享</h2>
+            <p>只需数次点击，即可发布仪表板，在网络和移动设备上实现实时共享。 </p>
+          </div>
+        </article>
+        <button class="button is-info is-inverted" style="position: relative;top: -10px;" id="apply">点击申请试用</button>
+      </div>
+    </div>
+    <div class="container" style="display: flex;justify-content: space-around;">
+      <div class="sq-item">
+        <img src="./images/image1.png" alt="">
+        <h4>经营范围</h4>
+        <p>公司主营网络技术开发、计算机软件技术开发、技术咨询、技术服务。</p>
+      </div>
+      <div class="sq-item">
+        <img src="./images/image2.png" alt="">
+        <h4>人员概况</h4>
+        <p>公司目前员工30人，其中研发人员9名。 </p>
+      </div>
+      <div class="sq-item">
+        <img src="./images/image3.png" alt="">
+        <h4>部门设置</h4>
+        <p>公司共设置了6个部门，分别为：技术部，行政，人力资源部，客户服务部，市场部。 </p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container">
+      <p>版权所有：上海犬岛信息科技有限公司</p>
+      <p>©一罐 沪ICP备18031101号</p>
+    </div>
+  </div>
+</body>
+<script>
+var btn = document.querySelector('#apply')
+btn.addEventListener('click', function () {
+  alert('请使用邮箱注册，会有客服主动联系您进行咨询。')
+})
+</script>
+</html>

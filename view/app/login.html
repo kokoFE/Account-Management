@@ -28,7 +28,8 @@
           <a href="./contact.html">联系我们</a>
         </div>
         <div class="nav-item active">
-          <a href="#">登录\注册</a>
+          <a href="#" v-if="!isLogin">登录\注册</a>
+          <a href="#" v-else>已登录</a>
         </div>
       </div>
     </div>
@@ -36,7 +37,7 @@
   <div class="body">
     <div class="swagger"></div>
     <div class="context">
-      <div class="container app">
+      <div class="container app" style="opacity: 0;" :style="{opacity: ready ? 1 : 0}">
         <div class="card" v-if="visible" style="width: 300px;position: relative;top: -430px;margin: 0 auto;">
           <div class="tabs is-centered">
             <ul>
@@ -164,10 +165,12 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script>
-var vm = new Vue({
+var isLogin = JSON.parse(localStorage.getItem('isLogin'));
+var vm1 = new Vue({
   el: '.app',
   data () {
     return {
+      ready: false,
       visible: true,
       lUsername: '',
       lPassword: '',
@@ -180,6 +183,9 @@ var vm = new Vue({
       modalMsg: '',
       mailReg: /^[A-Za-z\d]+([-_.][A-Za-z\d]+)*@([A-Za-z\d]+[-.])+[A-Za-z\d]{2,4}$/
     }
+  },
+  mounted () {
+    this.ready = true
   },
   methods: {
     switchLogin: function () {
@@ -215,8 +221,10 @@ var vm = new Vue({
       }).then(function (response) {
         console.log(response)
         if (response.data.success) {
-          self.modalMsg = '登录成功'
+          self.modalMsg = '登录成功 将会有工作人员为您服务'
           self.modalType = 'success'
+          window.localStorage.setItem('isLogin', JSON.stringify(true))
+          window.location.href ='/index.html'
         } else {
           self.modalMsg = response.data.message
           self.modalType = 'error'
@@ -260,7 +268,7 @@ var vm = new Vue({
       }).then(function (response) {
         console.log(response)
         if (response.data.success) {
-          self.modalMsg = '注册成功'
+          self.modalMsg = '注册成功 请登录'
           self.modalType = 'success'
         } else {
           self.modalMsg = response.data.message
@@ -274,6 +282,17 @@ var vm = new Vue({
         console.log(error)
       })
     }
+  }
+})
+var vm2 = new Vue({
+  el: '.header',
+  data () {
+    return {
+      isLogin: false
+    }
+  },
+  created () {
+    this.isLogin = JSON.parse(window.localStorage.getItem('isLogin'))
   }
 })
 </script>

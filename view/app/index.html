@@ -27,8 +27,9 @@
         <div class="nav-item">
           <a href="./contact.html">联系我们</a>
         </div>
-        <div class="nav-item">
-          <a href="./login.html">登录\注册</a>
+        <div class="nav-item active">
+          <a href="#" v-if="!isLogin">登录\注册</a>
+          <a href="#" v-else>已登录</a>
         </div>
       </div>
     </div>
@@ -120,6 +121,21 @@
 var btn = document.querySelector('#apply')
 btn.addEventListener('click', function () {
   alert('请使用邮箱注册，会有客服主动联系您进行咨询。')
+})
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+var vm2 = new Vue({
+  el: '.header',
+  data () {
+    return {
+      isLogin: false
+    }
+  },
+  created () {
+    this.isLogin = JSON.parse(window.localStorage.getItem('isLogin'))
+  }
 })
 </script>
 </html>
